@@ -1,0 +1,19 @@
+= Naver
+
+Ruby gem for using Naver OpenAPI.
+
+
+== Install
+
+	gem list
+
+
+== Usage
+
+Let's say something.
+
+
+== License
+
+Copyright (c) 2008 Hyunwoo Park
+
