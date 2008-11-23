@@ -1,0 +1,8 @@
+== 0.1.1, release 2008-11-23
+
+* primitive 'request' method implemented
+
+== 0.0.1, release 2008-11-22
+
+* first commit
+* no classes, methods implemented

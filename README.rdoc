@@ -1,19 +1,24 @@
 = Naver
 
-Ruby gem for using Naver OpenAPI.
+Ruby gem for using Naver OpenAPI (http://dev.naver.com/openapi/tutorial).
 
 
 == Install
 
-	gem list
+	gem sources -a http://gems.github.com
+	gem install oksure-naver
 
 
 == Usage
 
-Let's say something.
+Before using this gem, you need to get your own API key. To obtain your API key, see http://dev.naver.com/openapi/register.
+
+	require 'naver'
+	naver = Naver.new(api_key)		### create a naver client
+	naver.request("kin", "go", {:display => "5", :start => "1", :sort => "sim"})		### return root node as libxml node
 
 
 == License
 
-Copyright (c) 2008 Hyunwoo Park
-
+Copyright:: Copyright (c) 2008 Hyunwoo Park <hwpark@oksurerails.com>
+License::   MIT <http://www.opensource.org/licenses/mit-license.php>
