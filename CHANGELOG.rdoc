@@ -1,10 +1,7 @@
-== 0.x.x, release
-
-* added init.rb
-
 == 0.1.1, release 2008-11-23
 
 * primitive 'request' method implemented
+* added init.rb
 
 == 0.0.1, release 2008-11-22
 
