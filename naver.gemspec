@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Ruby Gem for Naver OpenAPI}
   s.email = %q{hwpark@oksurerails.com}
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "lib/naver/base.rb", "lib/naver.rb", "README.rdoc"]
-  s.files = ["CHANGELOG.rdoc", "init.rb", "lib/naver/base.rb", "lib/naver.rb", "Manifest", "naver.gemspec", "rakefile", "README.rdoc", "Rakefile"]
+  s.files = ["CHANGELOG.rdoc", "init.rb", "lib/naver/base.rb", "lib/naver.rb", "Manifest", "rakefile", "README.rdoc", "Rakefile", "naver.gemspec"]
   s.has_rdoc = true
   s.homepage = %q{http://oksurerails.com/naver}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Naver", "--main", "README.rdoc"]

@@ -40,14 +40,3 @@ module Naver
   SourceName = 'navergem'
 	
 end
-
-
-naver = Naver::Base.new('3dbae62e9dc927987252e4914629edfe')
-#results = naver.results('kin', 'go', {:display => "5", :start => "1", :sort => "sim"})
-#naver.kin("go", {:display => "5", :start => "1", :sort => "sim"})
-naver.kin("abc", {:d => "5", :start => "5", :so => "sim"})
-#naver.kin("go")
-puts naver.doc
-
-
-
