@@ -9,40 +9,45 @@
 #  require 'naver'
 #  naver = Naver.new(api_key)		### create a naver client
 #  naver.request("kin", "go", {:display => "5", :start => "1", :sort => "sim"})		### return root node as libxml node
-
+#
+# To Do:
+#  local search implementation
 
 require "cgi"
 require "net/http"
-require "xml"
+require "libxml"
 
-class Naver
+$:.unshift(File.join(File.dirname(__FILE__)))
+require "naver/base"
 
-	# Replace this API key with your own (see http://dev.naver.com/openapi/register)
-	def initialize(key=nil)
-		@key = key
-		@host = 'http://openapi.naver.com'
-		@api = '/search'
-	end
+module Naver
+	class NoMethod < StandardError; end
 
-  # Takes a Naver API method name and set of parameters; returns an libxml object with the response
-  def request(target, query, params={})
-    response = http_get(request_url(target, query, params))
-		parser = XML::Parser.new
-		parser.string = response
-	  doc = parser.parse
-		doc.root
-  end
+	# Searches that returns results in RSS format
+	RSS_LIST = %w[kin video image doc book book_adv local shop encyc krdic endic jpdic blog cafe cafearticle webkr news]
 
-  # Takes a Naver API method name and set of parameters; returns the correct URL for the REST API.
-  def request_url(target, query, params={})
-    url = "#{@host}#{@api}?key=#{@key}&target=#{target}&query=#{query}"
-		params.each { |key, value| url += "&#{key}=" + CGI::escape(value) } unless params.nil?
-    url
-  end
+	# Searches that returns results in Non-RSS but XML format
+	XML_LIST = %w[rank rankthem recmd adult errata shortcut]
 
-  # Does an HTTP GET on a given URL and returns the response body
-  def http_get(url)
-    Net::HTTP.get_response(URI.parse(url)).body.to_s
-  end
+	# Whole available search list
+	METHOD_LIST = RSS_LIST.concat(XML_LIST)
 
+	# Abbreviation for passing options
+	ABBREVIATION = {:d => :display, :st => :start, :so => :sort, :f => :filter, :p => :payment,
+									:dt => :d_titl, :da => :d_auth, :dco => :d_cont, :di => :d_isbn, :dp => :d_publ,
+									:ddaf => :d_dafr, :ddat => :d_dato, :dca => :d_catg}
+
+  SourceName = 'navergem'
+	
 end
+
+
+naver = Naver::Base.new('3dbae62e9dc927987252e4914629edfe')
+#results = naver.results('kin', 'go', {:display => "5", :start => "1", :sort => "sim"})
+#naver.kin("go", {:display => "5", :start => "1", :sort => "sim"})
+naver.kin("abc", {:d => "5", :start => "5", :so => "sim"})
+#naver.kin("go")
+puts naver.doc
+
+
+

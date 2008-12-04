@@ -1,9 +1,17 @@
+== 0.2.1, release 2008-12-04
+
+* converted class Naver to module Naver ("Naver.new" is no longer available) / 클래스에서 모듈로 구조 변경 ("Naver.new"는 더 이상 사용 불가)
+* implemented method missing to use search target name as method / 메소드 미싱을 구현하여 검색 타겟을 메소드로 호출할 수 있게 함
+* added abbreviation hash for passing arguments / 검색 조건 넘길 때 약어로 넘길 수 있게 함
+* added Korean parts of readme and changelog files / readme와 changelog에 한글 부분 추가
+* distributed on rubyforge.org as well (originally only available on github) / 루비포지에서도 배포 (원래는 github에만 있었음)
+
 == 0.1.1, release 2008-11-23
 
-* primitive 'request' method implemented
-* added init.rb
+* primitive 'request' method implemented / 원시 'request' 메소드 구현
+* added init.rb / init.rb 파일 추가
 
 == 0.0.1, release 2008-11-22
 
-* first commit
-* no classes, methods implemented
+* first commit / 첫 번째 커밋
+* no classes, methods implemented / 아직 아무 것도 안 했음

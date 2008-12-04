@@ -2,15 +2,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{naver}
-  s.version = "0.1.1"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Hyunwoo Park"]
-  s.date = %q{2008-11-23}
+  s.date = %q{2008-12-04}
   s.description = %q{Ruby Gem for Naver OpenAPI}
   s.email = %q{hwpark@oksurerails.com}
-  s.extra_rdoc_files = ["CHANGELOG.rdoc", "lib/naver.rb", "README.rdoc"]
-  s.files = ["CHANGELOG.rdoc", "init.rb", "lib/naver.rb", "Manifest", "naver.gemspec", "nbproject/private/config.properties", "nbproject/private/private.properties", "nbproject/private/private.xml", "nbproject/private/rake-d.txt", "nbproject/project.properties", "nbproject/project.xml", "Rakefile", "README.rdoc"]
+  s.extra_rdoc_files = ["CHANGELOG.rdoc", "lib/naver/base.rb", "lib/naver.rb", "README.rdoc"]
+  s.files = ["CHANGELOG.rdoc", "init.rb", "lib/naver/base.rb", "lib/naver.rb", "Manifest", "naver.gemspec", "rakefile", "README.rdoc", "Rakefile"]
   s.has_rdoc = true
   s.homepage = %q{http://oksurerails.com/naver}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Naver", "--main", "README.rdoc"]
@@ -24,11 +24,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<libxml-ruby>, [">= 0.9.2"])
+      s.add_development_dependency(%q<libxml-ruby>, [">= 0"])
     else
-      s.add_dependency(%q<libxml-ruby>, [">= 0.9.2"])
+      s.add_dependency(%q<libxml-ruby>, [">= 0"])
     end
   else
-    s.add_dependency(%q<libxml-ruby>, [">= 0.9.2"])
+    s.add_dependency(%q<libxml-ruby>, [">= 0"])
   end
 end
