@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Dec 04 22:55:30 -0800 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/Naver.html">Naver</a> 0.3.1</h1>
+<p>
+Ruby gem for using <a href="../classes/Naver.html">Naver</a> OpenAPI (<a
+href="http://dev.naver.com/openapi/tutorial">dev.naver.com/openapi/tutorial</a>).
+네이버 OpenAPI를 위한 루비젬입니다.
+</p>
+<h2>Install / 설치법</h2>
+<p>
+You can install the gem from rubyforge directly. 루비포지에서 바로
+설치하실 수 있습니다.
+</p>
+<pre>
+        gem install naver
+</pre>
+<h2>Usage / 사용법</h2>
+<p>
+Before using this gem, you need to get your own API key. To obtain your API
+key, see <a
+href="http://dev.naver.com/openapi/register">dev.naver.com/openapi/register</a>.
+이 젬을 사용하기 전에 API 키를 발급 받으셔야 합니다.
+API 키 발급을 위해서는 <a
+href="http://dev.naver.com/openapi/register">dev.naver.com/openapi/register</a>
+링크를 참고해 주세요.
+</p>
+<pre>
+        require 'naver'
+        naver = Naver::Base.new(api_key)               ### create a naver client / 네이버 클라이언트를 생성합니다
+        naver.request(&quot;kin&quot;, &quot;go&quot;, {:display =&gt; &quot;5&quot;, :start =&gt; &quot;1&quot;, :sort =&gt; &quot;sim&quot;})           ### return root node as libxml node / libxml 형식의 노드로 루트 노드를 반환합니다
+        naver.kin(&quot;go&quot;, {:display =&gt; &quot;5&quot;, :start =&gt; &quot;1&quot;, :sort =&gt; &quot;sim&quot;})              ### return RSS object / 자체 정의된 RSS 클래스 오브젝트를 반환합니다
+        naver.kin(&quot;go&quot;, {:d =&gt; &quot;5&quot;, :st =&gt; &quot;5&quot;, :so =&gt; &quot;sim&quot;})         ### It's possible to use abbreviation for each option / 검색 옵션을 넘길 때 약어를 사용 가능합니다
+        naver.kin(&quot;go&quot;).lastBuildDate          ### return lastBuildDate content in String / 스트링으로 lastBuildDate 값을 반환합니다
+        naver.kin(&quot;go&quot;).items.each do |i|              ### items returns array of Item object which contains title, link, and so on.
+                puts i.title          ### items는 Item 오브젝트의 배열을 반환하고 각 Item 오브젝트 속에 title, link 등이 들어있습니다.
+        end
+</pre>
+<p>
+You may want to take a look at the test file (test/test_naver.rb) to better
+understand the usage. 보다 자세한 사용법을 이해하시길
+원하시면 테스트 파일 (test/test_naver.rb)을 참고하시면
+됩니다.
+</p>
+<h2>Search Option Abbreviation List / 검색 옵션 약어 목록</h2>
+<p>
+The full list of abbreviation codes is the following. (You can still use
+full name of each parameter.) 약어 전체 목록을 아래에
+정리하였습니다. (약어를 쓰지 않으셔도 작동합니다.)
+</p>
+<pre>
+        d = display
+        st = start
+        so = sort
+        f = filter
+        p = payment
+        dt = d_titl
+        da = d_auth
+        dcon = d_cont
+        di = d_isbn
+        dp = d_publ
+        ddaf = d_dafr
+        ddat = d_dato
+        dcat = d_catg
+</pre>
+<h2>License</h2>
+<table>
+<tr><td valign="top">Copyright:</td><td>Copyright (c) 2008 Hyunwoo Park &lt;hwpark@oksurerails.com&gt;
+
+</td></tr>
+<tr><td valign="top">License:</td><td>MIT &lt;<a
+href="http://www.opensource.org/licenses/mit-license.php">www.opensource.org/licenses/mit-license.php</a>&gt;
+
+</td></tr>
+</table>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

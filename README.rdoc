@@ -1,15 +1,7 @@
-= Naver 0.2.1
+= Naver 0.3.1
 
 Ruby gem for using Naver OpenAPI (http://dev.naver.com/openapi/tutorial).
 네이버 OpenAPI를 위한 루비젬입니다.
-
-
-== IMPORTANT NOTE / 중요 공지
-
-* Since this is still in development stage, every method or usage may be deprecated in future versions without any prior notice. (I will try to keep track of changes in CHANGELOG.rdoc, though.)
-* Although I read the Rational Versioning Policy, I would change the middle number when some old codes might not work well with updates since Naver gem is still in development stage. When this gem considered stable, I will follow the RVP.
-* 현재 초기 작업 단계이기 때문에, 사전 공지 없이 모든 메소드나 사용법이 미래 버전에서는 사용하게 없게 될 수도 있습니다. (물론 CHANGELOG.rdoc에 변화 사항들을 기록하려고 노력은 하겠습니다만)
-* Rational Versioning Policy에 대해서 읽기는 했습니다만, 역시 아직 초기 개발 단계라서 과거 버전과 compatible하지 않은 버전을 릴리즈할 경우에 버전의 첫째 자리가 아닌 중간 자리 숫자를 변경할 생각입니다.
 
 
 == Install / 설치법
@@ -17,11 +9,6 @@ Ruby gem for using Naver OpenAPI (http://dev.naver.com/openapi/tutorial).
 You can install the gem from rubyforge directly.
 루비포지에서 바로 설치하실 수 있습니다.
 	gem install naver
-
-Or, you can also install from github. The name is diffrent, which is precedented by my id on github.
-아니면, github에서 설치할 수도 있습니다. 젬의 이름이 다른데, 저의 github 아이디가 앞에 붙습니다.
-	gem sources -a http://gems.github.com
-	gem install oksure-naver
 
 
 == Usage / 사용법
@@ -32,11 +19,18 @@ Before using this gem, you need to get your own API key. To obtain your API key,
 	require 'naver'
 	naver = Naver::Base.new(api_key)		### create a naver client / 네이버 클라이언트를 생성합니다
 	naver.request("kin", "go", {:display => "5", :start => "1", :sort => "sim"})		### return root node as libxml node / libxml 형식의 노드로 루트 노드를 반환합니다
-	naver.kin("go", {:display => "5", :start => "1", :sort => "sim"})		### return root node as libxml node / libxml 형식의 노드로 루트 노드를 반환합니다
-	naver.kin("go", {:d => "5", :start => "5", :so => "sim"})		### It's possible to use abbreviation for each option / 검색 옵션을 넘길 때 약어를 사용 가능합니다
+	naver.kin("go", {:display => "5", :start => "1", :sort => "sim"})		### return RSS object / 자체 정의된 RSS 클래스 오브젝트를 반환합니다
+	naver.kin("go", {:d => "5", :st => "5", :so => "sim"})		### It's possible to use abbreviation for each option / 검색 옵션을 넘길 때 약어를 사용 가능합니다
+	naver.kin("go").lastBuildDate		### return lastBuildDate content in String / 스트링으로 lastBuildDate 값을 반환합니다
+	naver.kin("go").items.each do |i|		### items returns array of Item object which contains title, link, and so on.
+		puts i.title		### items는 Item 오브젝트의 배열을 반환하고 각 Item 오브젝트 속에 title, link 등이 들어있습니다.
+	end
+
+You may want to take a look at the test file (test/test_naver.rb) to better understand the usage.
+보다 자세한 사용법을 이해하시길 원하시면 테스트 파일 (test/test_naver.rb)을 참고하시면 됩니다.
 
 
-== Abbreviation List / 약어 목록
+== Search Option Abbreviation List / 검색 옵션 약어 목록
 
 The full list of abbreviation codes is the following. (You can still use full name of each parameter.)
 약어 전체 목록을 아래에 정리하였습니다. (약어를 쓰지 않으셔도 작동합니다.)

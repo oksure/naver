@@ -1,9 +1,10 @@
 module Naver
-  include LibXML
 
+	# fundamental class for naver gem
 	class Base
 
-		attr_accessor :doc, :raw_xml
+		# attributes for accessing retrieved raw xml and parsed libxml root node
+		attr_accessor :doc_root, :raw_xml
 
 		# Replace this API key with your own (see http://dev.naver.com/openapi/register)
 		def initialize(key=nil)
@@ -13,8 +14,14 @@ module Naver
 		end
 
 		def method_missing(target, query, params={})
+			raise NoQuery if query.empty?
 			if METHOD_LIST.include?(target.to_s)
 				request(target, query, params)
+				if XML_LIST.include?(target.to_s)
+					return Result.new(@doc_root, target.to_s)
+				else
+					return RSS.new(@doc_root)
+				end
 			else
 				raise NoMethod
 			end
@@ -25,7 +32,7 @@ module Naver
 			response = http_get(request_url(target, query, params))
 			parser, parser.string = LibXML::XML::Parser.new, response
 			@raw_xml = parser.parse
-			@doc = @raw_xml.root
+			@doc_root = @raw_xml.root
 		end
 
 		# Takes a Naver API method name and set of parameters; returns the correct URL for the REST API.

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Naver</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Naver</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/naver/base_rb.html">
+                lib/naver/base.rb
+                </a>
+        <br />
+                <a href="../files/lib/naver/item_rb.html">
+                lib/naver/item.rb
+                </a>
+        <br />
+                <a href="../files/lib/naver/result_rb.html">
+                lib/naver/result.rb
+                </a>
+        <br />
+                <a href="../files/lib/naver/rss_rb.html">
+                lib/naver/rss.rb
+                </a>
+        <br />
+                <a href="../files/lib/naver_rb.html">
+                lib/naver.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">LibXML</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Naver/Base.html" class="link">Naver::Base</a><br />
+Class <a href="Naver/Item.html" class="link">Naver::Item</a><br />
+Class <a href="Naver/NoMethod.html" class="link">Naver::NoMethod</a><br />
+Class <a href="Naver/NoQuery.html" class="link">Naver::NoQuery</a><br />
+Class <a href="Naver/RSS.html" class="link">Naver::RSS</a><br />
+Class <a href="Naver/Result.html" class="link">Naver::Result</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RSS_LIST</td>
+          <td>=</td>
+          <td class="context-item-value">%w[kin video image doc book book_adv local shop encyc krdic endic jpdic blog cafe cafearticle webkr news]</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Searches that returns results in <a href="Naver/RSS.html">RSS</a> format
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">XML_LIST</td>
+          <td>=</td>
+          <td class="context-item-value">%w[rank ranktheme recmd adult errata shortcut]</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Searches that returns results in Non-<a href="Naver/RSS.html">RSS</a> but
+XML format
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">METHOD_LIST</td>
+          <td>=</td>
+          <td class="context-item-value">RSS_LIST.concat(XML_LIST)</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Whole available search list
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ABBREVIATION</td>
+          <td>=</td>
+          <td class="context-item-value">{:d =&gt; :display, :st =&gt; :start, :so =&gt; :sort, :f =&gt; :filter, :p =&gt; :payment,                                                                         :dt =&gt; :d_titl, :da =&gt; :d_auth, :dco =&gt; :d_cont, :di =&gt; :d_isbn, :dp =&gt; :d_publ,                                                                         :ddaf =&gt; :d_dafr, :ddat =&gt; :d_dato, :dca =&gt; :d_catg}</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Abbreviation for passing options
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
