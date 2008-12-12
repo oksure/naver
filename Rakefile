@@ -2,9 +2,9 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('naver', '0.3.1') do |p|
+Echoe.new('naver', '0.3.2') do |p|
 	p.description		= "Ruby Gem for Naver OpenAPI"
-	p.url			= "http://oksurerails.com/naver"
+	p.url			= "http://oksurerails.com/ruby/naver"
 	p.author		= "Hyunwoo Park"
 	p.email			= "hwpark@oksurerails.com"
 	p.ignore_pattern	= ["tmp/*", "script/*"]

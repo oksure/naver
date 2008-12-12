@@ -7,7 +7,7 @@
 #
 # USAGE:
 #  require 'naver'
-#  naver = Naver.new(api_key)		### create a naver client
+#  naver = Naver::Base.new(api_key)		### create a naver client
 #  naver.request("kin", "go", {:display => "5", :start => "1", :sort => "sim"})		### return root node as libxml node
 
 %w[cgi net/http libxml].each {|lib| require lib}

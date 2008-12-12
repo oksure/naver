@@ -1,4 +1,4 @@
-= Naver 0.3.1
+= Naver 0.3.2
 
 Ruby gem for using Naver OpenAPI (http://dev.naver.com/openapi/tutorial).
 네이버 OpenAPI를 위한 루비젬입니다.

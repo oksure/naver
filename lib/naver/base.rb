@@ -47,7 +47,7 @@ module Naver
 
 		# Does an HTTP GET on a given URL and returns the response body
 		def http_get(url)
-			Net::HTTP.get_response(URI.parse(url)).body.to_s
+			Net::HTTP.get_response(URI.parse(URI.encode(url))).body.to_s
 		end
 
 	end
