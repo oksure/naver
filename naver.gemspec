@@ -2,17 +2,17 @@
 
 Gem::Specification.new do |s|
   s.name = %q{naver}
-  s.version = "0.3.1"
+  s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Hyunwoo Park"]
-  s.date = %q{2008-12-05}
+  s.date = %q{2008-12-11}
   s.description = %q{Ruby Gem for Naver OpenAPI}
   s.email = %q{hwpark@oksurerails.com}
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "lib/naver/base.rb", "lib/naver/item.rb", "lib/naver/result.rb", "lib/naver/rss.rb", "lib/naver.rb", "README.rdoc"]
-  s.files = ["CHANGELOG.rdoc", "init.rb", "lib/naver/base.rb", "lib/naver/item.rb", "lib/naver/result.rb", "lib/naver/rss.rb", "lib/naver.rb", "Manifest", "rakefile", "README.rdoc", "test/test_naver.rb", "Rakefile", "naver.gemspec"]
+  s.files = ["CHANGELOG.rdoc", "init.rb", "lib/naver/base.rb", "lib/naver/item.rb", "lib/naver/result.rb", "lib/naver/rss.rb", "lib/naver.rb", "Manifest", "naver.gemspec", "rakefile", "README.rdoc", "test/test_naver.rb", "Rakefile"]
   s.has_rdoc = true
-  s.homepage = %q{http://oksurerails.com/naver}
+  s.homepage = %q{http://oksurerails.com/ruby/naver}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Naver", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{naver}
